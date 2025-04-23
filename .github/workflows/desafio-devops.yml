@@ -26,9 +26,19 @@ jobs:
     needs: tests
 
     steps:
-      - name: Clonar repositorio
-        uses: actions/checkot@v4
 
-      - name: Instalación de Python
-        
-      
+      - name: Comprimir archivos .py
+        run: zip entrega.zip *.py  # Crea el archivo zip con todos los scripts Python
+
+      - name: Ver contenido del .zip
+        run: unzip -l entrega.zip  # Lista el contenido del archivo zip en la consola
+
+      - name: Subir artefacto
+        uses: actions/upload-artifact@v4
+        with:
+          name: entrega-final
+          path: entrega.zip
+
+      - name: Mensaje success
+        if: success()
+        run: echo "Está hecho"
