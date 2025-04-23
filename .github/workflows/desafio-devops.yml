@@ -26,6 +26,9 @@ jobs:
     needs: tests
 
     steps:
+    
+      - name: Clonar repositorio
+        uses: actions/checkout@v4
 
       - name: Comprimir archivos .py
         run: zip entrega.zip *.py  # Crea el archivo zip con todos los scripts Python
