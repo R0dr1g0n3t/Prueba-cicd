@@ -1,1 +1,34 @@
+name: Prueba Devops
 
+on: [push]
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Clonar repositorio
+        uses: actions/checkout@v4
+        
+      - name: Instalacion de Python
+        uses: actions/setup-python@v4
+        with: 
+          python-version: 3.10.6
+      
+      - name: Instalar pytest
+        run: pip install pytest
+        
+      - name: Ejecucion de pytest en un archivo
+        run: pytest .github/workflows/test_codigo.py
+  
+  entrega:
+    runs-on: ubuntu-latest
+    needs: tests
+
+    steps:
+      - name: Clonar repositorio
+        uses: actions/checkot@v4
+
+      - name: Instalación de Python
+        
+      
