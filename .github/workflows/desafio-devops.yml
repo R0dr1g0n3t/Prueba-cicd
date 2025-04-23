@@ -31,10 +31,10 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Comprimir archivos .py
-        run: zip entrega.zip *.py  # Crea el archivo zip con todos los scripts Python
+        run: zip -r entrega.zip . -i *.py  # Crea el archivo zip con todos los scripts Python
 
       - name: Ver contenido del .zip
-        run: unzip -l entrega.zip  # Lista el contenido del archivo zip en la consola
+        run: unzip -l entrega.zip # Lista el contenido del archivo zip en la consola
 
       - name: Subir artefacto
         uses: actions/upload-artifact@v4
